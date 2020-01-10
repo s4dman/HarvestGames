@@ -1,5 +1,14 @@
-<p>Product Title</p>
-<p>Product Image</p>
-<p>Product Price</p>
-<p>Product Description</p>
-<p>Product Availability</p>
+{% block content %}
+
+{% for product in products %}
+<div style="border-bottom: 1px solid #000">
+    <p>{{product.title}}</p>
+    <p>{{product.imageUrl}}</p>
+    <p>{{product.price}}</p>
+    <p>{{product.description}}</p>
+    <p>{{product.availability}}</p>
+
+</div>
+{% endfor %}
+
+{% endblock content %}
