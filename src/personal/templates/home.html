@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    This is body
+
+{% for product in products %}
+<div style="border-bottom: 1px solid #000">
+    <p>{{product.title}}</p>
+    <p>{{product.imageUrl}}</p>
+    <p>{{product.price}}</p>
+    <p>{{product.availability}}</p>
+
 </div>
+{% endfor %}
 
 {% endblock content %}
