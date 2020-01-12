@@ -20,8 +20,13 @@ from src.personal.views import (
     details_view
 )
 
+from src.users.views import (
+    registration_view,
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
-    path('details', details_view, name="details"),
+    path('details/', details_view, name="details"),
+    path('register/', registration_view, name="register"),
 ]
