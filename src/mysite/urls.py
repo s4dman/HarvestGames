@@ -22,7 +22,8 @@ from src.personal.views import (
 
 from src.users.views import (
     registration_view,
-    logout_view
+    login_view,
+    logout_view,
 )
 
 urlpatterns = [
@@ -30,5 +31,6 @@ urlpatterns = [
     path('', home_view, name="home"),
     path('details/', details_view, name="details"),
     path('register/', registration_view, name="register"),
+    path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
 ]
