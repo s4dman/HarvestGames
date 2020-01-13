@@ -8,8 +8,12 @@ products = Products.objects.all()
 
 
 def home_view(request):
-    context['products'] = products
     return render(request, "home.html", context)
+
+
+def products_view(request):
+    context['products'] = products
+    return render(request, "products.html", context)
 
 
 def details_view(request):

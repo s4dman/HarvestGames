@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from src.personal.views import (
     home_view,
+    products_view,
     details_view
 )
 
@@ -29,7 +30,8 @@ from src.users.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
-    path('details/', details_view, name="details"),
+    path('products/', products_view, name="products"),
+    path('products/details/', details_view, name="details"),
     path('register/', registration_view, name="register"),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
