@@ -6,7 +6,6 @@
     <div class="container">
         <div class="whole-wrap">
             <div class="container box_1170">
-                {% for product in products %}
                 <div class="section-top-border">
                     <div class="row">
                         <div class="col-md-3">
@@ -14,6 +13,7 @@
                         </div>
 
                         <div class="col-md-9 mt-sm-20">
+                            <h1>{{product.id}}</h1>
                             <h1>{{product.title}}</h1>
                             <h2>{{product.price}}</h2>
                             <h3>{{product.availability}}</h3>
@@ -24,7 +24,6 @@
 
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
