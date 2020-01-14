@@ -21,7 +21,7 @@
                         <li>{{product.availability}}</li>
                     </ul>
                     <br>
-                    <a href="details" class="btn_2">Buy</a>
+                    <a href="{% url 'details' product.slug %}" class="btn_2">Buy</a>
                 </div>
             </div>
             {% endfor %}
