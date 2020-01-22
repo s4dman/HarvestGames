@@ -1,14 +1,32 @@
+{% extends 'base.html' %}
+
 {% block content %}
 
-{% for product in products %}
-<div style="border-bottom: 1px solid #000">
-    <p>{{product.title}}</p>
-    <p>{{product.imageUrl}}</p>
-    <p>{{product.price}}</p>
-    <p>{{product.description}}</p>
-    <p>{{product.availability}}</p>
+<section class="about_us section_padding">
+    <div class="container">
+        <div class="whole-wrap">
+            <div class="container box_1170">
+                <div class="section-top-border">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{product.imageUrl}}" alt="" class="img-fluid">
+                        </div>
 
-</div>
-{% endfor %}
+                        <div class="col-md-9 mt-sm-20">
+                            <h1>{{product.id}}</h1>
+                            <h1>{{product.title}}</h1>
+                            <h2>{{product.price}}</h2>
+                            <h3>{{product.availability}}</h3>
+                            <p>{{product.description}}</p>
+                            <br>
+                            <a href="#" class="btn_1">Add to cart</a>
+                        </div>
 
-{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    {% endblock content %}
