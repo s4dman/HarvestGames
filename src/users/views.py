@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from src.users.forms import RegistrationForm, UserAuthenticationForm
+from .forms import RegistrationForm, UserAuthenticationForm
 
 
 def registration_view(request):
@@ -8,12 +8,11 @@ def registration_view(request):
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            account = authenticate(email=email, password=raw_password)
-            login(request, account)
-            return redirect('home')
+            user = form.save()
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return redirect('personal:home')
         else:
             context['registration_form'] = form  # Read the errors in form
     else:  # GET request; Users will see the registration form at first
@@ -24,7 +23,7 @@ def registration_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('personal:home')
 
 
 def login_view(request):
@@ -32,7 +31,7 @@ def login_view(request):
 
     user = request.user
     if user.is_authenticated:
-        return redirect("home")
+        return redirect('personal:home')
 
     if request.POST:
         form = UserAuthenticationForm(request.POST)
@@ -43,7 +42,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect("home")
+                return redirect('personal:home')
 
     else:
         form = UserAuthenticationForm()

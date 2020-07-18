@@ -1,7 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from personal.models import Products
-
-# Create your views here.
+from .models import Products
 
 context = {}
 
@@ -17,6 +15,6 @@ def products_view(request):
 
 
 def details_view(request, slug):
-    products = get_object_or_404(Products, slug=slug)
-    context['products'] = products
+    product = get_object_or_404(Products, slug=slug)
+    context['product'] = product
     return render(request, "details.html", context)
