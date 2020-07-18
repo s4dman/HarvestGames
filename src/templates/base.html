@@ -31,7 +31,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg navbar-light">
-                                <a class="navbar-brand" href="index.html">
+                                <a class="navbar-brand" href="{% url 'personal:home' %}">
                                     <img src="{% static 'img/logo.png' %}" alt="logo">
                                 </a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -43,10 +43,10 @@
                                     <ul class="navbar-nav">
                                         {% if request.user.is_authenticated %}
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                                <a class="nav-link" href="{% url 'personal:home' %}">Home</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#product-section">Products</a>
+                                                <a class="nav-link" href="{% url 'personal:home' %}#product-section" >Products</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">Cart</a>
@@ -59,7 +59,7 @@
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                     <a class="dropdown-item" href="#"> Account</a>
-                                                    <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                                                    <a class="dropdown-item" href="{% url 'user:logout' %}">Log out</a>
                                                 </div>
                                             </li>
                                         {% else %}
@@ -67,13 +67,13 @@
                                                 <a class="nav-link" href="contact.html">Cart</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'register' %}">Sign up</a>
+                                                <a class="nav-link" href="{% url 'user:register' %}">Sign up</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                                                <a class="nav-link" href="{% url 'user:login' %}">Log in</a>
                                             </li>
                                             
-                                            <!-- <p>  <a class = "" href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a> </p> -->
+                                            <!-- <p>  <a class = "" href="{% url 'user:register' %}">Register</a> | <a href="{% url 'user:login' %}">Login</a> </p> -->
                                         {% endif %}
                                     </ul>
                                 </div>
