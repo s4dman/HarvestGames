@@ -33,11 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="headr-left">
                 <div class="social">
-                    <a href="#"><i class="facebook"></i></a>
+                    <a href="https://www.facebook.com/harvestgamesstore/" target="_blank"><i class="facebook"></i></a>
+                    <a href="https://www.instagram.com/harvestgamesstore/" target="_blank"><i class="pin"></i></a>
                     <a href="#"><i class="twitter"></i></a>
-                    <a href="#"><i class="gplus"></i></a>
-                    <a href="#"><i class="pin"></i></a>
-                    <a href="#"><i class="youtube"></i></a>
                 </div>
                 <div class="search">
                     <form>
@@ -63,14 +61,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="banner-info">
         <div class="container">
             <div class="logo">
-                <h1><a href="{% url 'personal:home'  %} ">Harvest Games Store</a></h1>
+                <h1><a href="{% url 'personal:home' %} ">Harvest Games Store</a></h1>
             </div>
             <div class="top-menu">
                 <span class="menu"></span>
                 <ul class="nav1">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li class="active"><a href="{% url 'personal:home' %} ">Home</a></li>
+                    <li><a href="{% url 'personal:all_products' %}">Products</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Account</a></li>
+                        <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'users:login' %}">Login</a></li>
+                        <li><a href="{% url 'users:register' %}">Sign Up</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
             <!-- script-for-menu -->
@@ -100,11 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 ftr-grid">
                 <h3>Categories</h3>
                 <ul class="ftr-list">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Racing</a></li>
-                    <li><a href="#">Adventure</a></li>
-                    <li><a href="#">Simulation</a></li>
-                    <li><a href="#">Bike</a></li>
+                    <li><a href="#">Steam Cards</a></li>
+                    <li><a href="#">iTunes Gift Cards</a></li>
+                    <li><a href="#">Google Play Cards</a></li>
+                    <li><a href="#">PSN Cards</a></li>
                 </ul>
             </div>
             <div class="col-md-3 ftr-grid">
@@ -121,8 +126,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3>Information</h3>
                 <ul class="ftr-list">
                     <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Wish Lists</a></li>
-                    <li><a href="#">Site Map</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
@@ -133,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 <div class="copywrite">
     <div class="container">
-        <p> © 2020 Adventure Gaming. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+        <p> © 2020 Harvest Games Store. All rights reserved</p>
     </div>
 </div>
 <!---->
