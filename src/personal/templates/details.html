@@ -1,31 +1,60 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-<section class="about_us section_padding">
-    <div class="container">
-        <div class="whole-wrap">
-            <div class="container box_1170">
-                <div class="section-top-border">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="{{product.imageUrl}}" alt="" class="img-fluid">
-                        </div>
-
-                        <div class="col-md-9 mt-sm-20">
-                            <h1>{{product.title}}</h1>
-                            <h2>{{product.price}}</h2>
-                            <h3>{{product.availability}}</h3>
-                            <p>{{product.description}}</p>
-                            <br>
-                            <a href="#" class="btn_1">Add to cart</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    <div class="banner">
+        <div class="bnr2">
         </div>
     </div>
-</section>
+    <div class="blog">
+        <div class="container">
+            <div class="col-md-8 blog-left">
+                <div class="blog-info">
+                    <div class="blog-info-text">
+                        <img class="img-responsive zoom-img" src="{{ product.imageUrl }}" alt=""/>
+                        <p class="snglp">{{ product.title }}</p>
+                        <p class="snglp">{{ product.price }}</p>
+                        <p class="snglp">{{ product.availability }}</p>
+                        <p class="snglp">{{ product.description }}</p>
+                    </div>
+                </div>
 
-    {% endblock content %}
+                <a href="single.html" class="btn btn-primary hvr-rectangle-in">Add To Cart</a>
+            </div>
+            <div class="col-md-4 single-page-right">
+
+                <div class="recent-posts">
+                    <h4>More Products</h4>
+                    <div class="recent-posts-info">
+                        <div class="posts-left sngl-img">
+                            <a href="single.html"> <img src="{% static 'images/img16.jpg' %}"
+                                                        class="img-responsive zoom-img" alt=""/>
+                            </a>
+                        </div>
+                        <div class="posts-right">
+                            <label>March 5, 2020</label>
+                            <h5><a href="single.html">Finibus Bonorum</a></h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing incididunt.</p>
+                            <a href="single.html" class="btn btn-primary hvr-rectangle-in">Read More</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="recent-posts-info">
+                        <div class="posts-left sngl-img">
+                            <a href="single.html"> <img src="{% static 'images/img17.jpg' %}"
+                                                        class="img-responsive zoom-img" alt=""/></a>
+                        </div>
+                        <div class="posts-right">
+                            <label>March 1, 2020</label>
+                            <h5><a href="single.html">Finibus Bonorum</a></h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing incididunt.</p>
+                            <a href="single.html" class="btn btn-primary hvr-rectangle-in">Read More</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock content %}

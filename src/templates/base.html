@@ -1,145 +1,141 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Harvest Games Store</title>
-        <link rel="icon" href="img/favicon.png">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <!-- animate CSS -->
-        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-        <!-- owl carousel CSS -->
-        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-        <!-- font awesome CSS -->
-        <link rel="stylesheet" href="{% static 'css/all.css' %}">
-        <!-- flaticon CSS -->
-        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-        <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-        <!-- font awesome CSS -->
-        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-        <!-- swiper CSS -->
-        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
-        <!-- style CSS -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <div class="body_bg">
-            <header class="main_menu single_page_menu">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12">
-                            <nav class="navbar navbar-expand-lg navbar-light">
-                                <a class="navbar-brand" href="{% url 'personal:home' %}">
-                                    <img src="{% static 'img/logo.png' %}" alt="logo">
-                                </a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                                </button>
-                                <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                                    <ul class="navbar-nav">
-                                        {% if request.user.is_authenticated %}
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'personal:home' %}">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'personal:home' %}#product-section" >Products</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Cart</a>
-                                            </li>
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                                    role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    Hi, {{request.user.username}}
-                                                </a>
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <a class="dropdown-item" href="#"> Account</a>
-                                                    <a class="dropdown-item" href="{% url 'user:logout' %}">Log out</a>
-                                                </div>
-                                            </li>
-                                        {% else %}
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="contact.html">Cart</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'user:register' %}">Sign up</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'user:login' %}">Log in</a>
-                                            </li>
-                                            
-                                            <!-- <p>  <a class = "" href="{% url 'user:register' %}">Register</a> | <a href="{% url 'user:login' %}">Login</a> </p> -->
-                                        {% endif %}
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Harvest Games Store</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/custom.css' %}" rel='stylesheet' type='text/css'/>
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Adventure Gaming  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+
+    <script src="{% static 'js/jquery.min.js' %} "></script>
+
+</head>
+<body>
+<!-- header -->
+<div class="top-banner">
+    <div class="header">
+        <div class="container">
+            <div class="headr-left">
+                <div class="social">
+                    <a href="#"><i class="facebook"></i></a>
+                    <a href="#"><i class="twitter"></i></a>
+                    <a href="#"><i class="gplus"></i></a>
+                    <a href="#"><i class="pin"></i></a>
+                    <a href="#"><i class="youtube"></i></a>
                 </div>
-            </header>
-            {% block content %}
-            {% endblock content %}
-            <footer class="footer_part">
-                <div class="footer_top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_footer_part">
-                                    <a href="index.html" class="footer_logo_iner"> <img src="{% static 'img/logo.png' %}"
-                                    alt="#"> </a>
-                                    <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing
-                                        days
-                                        open
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_footer_part">
-                                    <h4>Contact Info</h4>
-                                    <p>Address : Your address goes
-                                        here, your demo address.
-                                    Bangladesh.</p>
-                                    <p>Phone : +8880 44338899</p>
-                                    <p>Email : info@hgs.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="search">
+                    <form>
+                        <input type="submit" value="">
+                        <input type="text" value="" placeholder="Search...">
+                    </form>
                 </div>
-                <div class="copygight_text">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-8">
-                                <div class="copyright_text">
-                                    <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                    All rights reserved by Harvest Games Store | Thanks to <a href="https://colorlib.com"
-                                        target="_blank">Colorlib <i
-                                    class="ti-heart" aria-hidden="true"></i> </a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                </P>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="footer_icon social_icon">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="headr-right">
+                <div class="details">
+                    <ul>
+                        <li><a href="mailto@example.com"><span class="glyphicon glyphicon-envelope"
+                                                               aria-hidden="true"></span>info@harvest.com</a></li>
+                        <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>(+1)226-123-4567</li>
+                    </ul>
                 </div>
             </div>
+            <div class="clearfix"></div>
         </div>
-    </footer>
+    </div>
+    <!--banner-info-->
+    <div class="banner-info">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="{% url 'personal:home'  %} ">Harvest Games Store</a></h1>
+            </div>
+            <div class="top-menu">
+                <span class="menu"></span>
+                <ul class="nav1">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="{% url 'personal:products' %}">Products</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div>
+            <!-- script-for-menu -->
+            <script>
+                $("span.menu").click(function () {
+                    $("ul.nav1").slideToggle(300, function () {
+                        // Animation complete.
+                    });
+                });
+            </script>
+            <!-- /script-for-menu -->
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </div>
+{% block content %}
+{% endblock content %}
+<div class="footer">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-3 ftr-info">
+                <h3>About Us</h3>
+                <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus.
+                    Suspendisse pharetra, metus sed rutrum pretium.</p>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h3>Categories</h3>
+                <ul class="ftr-list">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Racing</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Simulation</a></li>
+                    <li><a href="#">Bike</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h3>Platform</h3>
+                <ul class="ftr-list">
+                    <li><a href="#">Pc</a></li>
+                    <li><a href="#">Ps4</a></li>
+                    <li><a href="#">XBOX 360</a></li>
+                    <li><a href="#">XBOX ONE</a></li>
+                    <li><a href="#">PSP</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h3>Information</h3>
+                <ul class="ftr-list">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Wish Lists</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="copywrite">
+    <div class="container">
+        <p> © 2020 Adventure Gaming. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+</div>
+<!---->
 </body>
 </html>
