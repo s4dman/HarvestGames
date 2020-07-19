@@ -2,11 +2,26 @@ from django.db import models
 
 # Create your models here.
 from django.urls import reverse_lazy
+from django.utils.text import slugify
 
 AVAILABILITY = [
     ("In Stock", "in-stock"),
     ("Out Of Stock", "out-of-stock")
 ]
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def get_absolute_url(self):
+        return reverse_lazy('details', kwargs={'product_category': self.name})
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
 
 class Products(models.Model):
@@ -16,14 +31,19 @@ class Products(models.Model):
     description = models.TextField(max_length=500)
     availability = models.CharField(max_length=20, choices=AVAILABILITY)
     slug = models.SlugField(blank=True, unique=True)
-
-    def get_absolute_url(self):
-        return reverse_lazy('details', kwargs={'product_id': self.id})
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse_lazy('details', kwargs={'product_slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        value = self.title
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = "Product"
         verbose_name_plural = "Products"
-

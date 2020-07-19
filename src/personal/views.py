@@ -14,7 +14,14 @@ def products_view(request):
     return render(request, "products.html", context)
 
 
+def products_category_view(request, category):
+    products = Products.objects.all(category=category)
+    context['products'] = products
+    return render(request, "products.html", context)
+
+
 def details_view(request, slug):
+    model = Products
     product = get_object_or_404(Products, slug=slug)
     context['product'] = product
     return render(request, "details.html", context)
