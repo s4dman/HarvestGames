@@ -66,15 +66,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="top-menu">
                 <span class="menu"></span>
                 <ul class="nav1">
-                    <li class="active"><a href="{% url 'personal:home' %} ">Home</a></li>
-                    <li><a href="{% url 'personal:all_products' %}">Products</a></li>
+                    <li class="{% if nbar == 'home' %}active{% endif %}"><a href="{% url 'personal:home' %} ">Home</a></li>
+                    <li class="{% if nbar == 'products' %}active{% endif %}"><a href="{% url 'personal:all_products' %}">Products</a></li>
                     {% if request.user.is_authenticated %}
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="#">Account</a></li>
+                        <li class="{% if nbar == 'cart' %}active{% endif %}"><a href="#">Cart</a></li>
+                        <li class="{% if nbar == 'account' %}active{% endif %}"><a href="#">Account</a></li>
                         <li><a href="{% url 'users:logout' %}">Logout</a></li>
                     {% else %}
-                        <li><a href="{% url 'users:login' %}">Login</a></li>
-                        <li><a href="{% url 'users:register' %}">Sign Up</a></li>
+                        <li class="{% if nbar == 'login' %}active{% endif %}"><a href="{% url 'users:login' %}">Login</a></li>
+                        <li class="{% if nbar == 'register' %}active{% endif %}"><a href="{% url 'users:register' %}">Sign Up</a></li>
                     {% endif %}
 
                 </ul>
