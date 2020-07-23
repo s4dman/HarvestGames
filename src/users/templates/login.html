@@ -1,37 +1,43 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block content %}
-
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {% for field in login_form %}
-    <p>
-        {{field.label_tag}}
-        {{field}}
-
-        {% if field.help_text %}
-        <small style="color: grey;">{{field.help_text}}</small>
-        {% endif %}
-
-    </p>
-    {% endfor %}
-
-    {% for field in login_form %}
-        {% for error in field.errors %}
-            <p style="color: red;">{{error}}</p>
-        {% endfor %}
-    {% endfor %}
-
-    {% if login_form.non_field_errors %}
-    <div style="color:red;">
-        <p>{{login_form.non_field_errors}}</p>
+    <div class="banner">
+        <div class="bnr2">
+        </div>
     </div>
-    {% endif %}
-    <button type="submit">Log in</button>
 
-</form>
+    <div class="contact">
+        <div class="container">
+            <div class="contact-head">
+                <h2>Log In</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="col-md-offset-3 col-md-6 text-center">
+                        {% for field in login_form %}
+                            <p>{{ field.label_tag }}{{ field }}</p>
+                            {% if field.help_text %}
+                                <small style="color: grey;">{{ field.help_text }}</small>
+                            {% endif %}
+                        {% endfor %}
 
+                        {% for field in login_form %}
+                            {% for error in field.errors %}
+                                <p class="field-error">{{ error }}</p>
+                            {% endfor %}
+                        {% endfor %}
 
+                        {% if login_form.non_field_errors %}
+                            <p class="field-error">{{ login_form.non_field_errors.as_text }}</p>
+                        {% endif %}
+
+                        <input type="submit" value="Log in"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+                <p class="col-md-offset-3 col-md-6 text-center margin-top-20"><a href="{% url 'users:register' %}">Create
+                    new account</a> | <a href="{% url 'users:register' %}">Forget Password?</a></p>
+            </div>
+
+        </div>
+    </div>
 {% endblock content %}

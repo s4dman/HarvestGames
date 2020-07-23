@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm, UserAuthenticationForm
 
+context = {}
+
 
 def registration_view(request):
-    context = {}
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -18,6 +19,7 @@ def registration_view(request):
     else:  # GET request; Users will see the registration form at first
         form = RegistrationForm()
         context['registration_form'] = form
+        context['nbar'] = 'register'
     return render(request, 'register.html', context)
 
 
@@ -27,8 +29,6 @@ def logout_view(request):
 
 
 def login_view(request):
-    context = {}
-
     user = request.user
     if user.is_authenticated:
         return redirect('personal:home')
@@ -47,5 +47,6 @@ def login_view(request):
     else:
         form = UserAuthenticationForm()
 
+    context['nbar'] = 'login'
     context['login_form'] = form
     return render(request, 'login.html', context)

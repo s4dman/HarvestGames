@@ -12,9 +12,15 @@ AVAILABILITY = [
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    category_slug = models.SlugField(blank=True, unique=True)
 
     def get_absolute_url(self):
         return reverse_lazy('details', kwargs={'product_category': self.name})
+
+    def save(self, *args, **kwargs):
+        value = self.name
+        self.category_slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -31,7 +37,7 @@ class Products(models.Model):
     description = models.TextField(max_length=500)
     availability = models.CharField(max_length=20, choices=AVAILABILITY)
     slug = models.SlugField(blank=True, unique=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, to_field='category_slug')
 
     def __str__(self):
         return self.title
