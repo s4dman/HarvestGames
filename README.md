@@ -1,4 +1,4 @@
-# HarvestGames
+# Harvest Games Store
 **E-commerce website for Harvest Games Store built using Django.**
 
 
